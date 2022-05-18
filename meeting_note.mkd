@@ -1,0 +1,21 @@
+03.05:
+
+- Fine tuning with openNMT (retrain model from NATAS)
+-- https://github.com/mikahama/natas/tree/master/natas/models
+-- https://opennmt.net/OpenNMT-tf/training.html#retraining
+
+- Having working script, not trained yet for next week
+
+
+11.05:
+
+- Fine tuning ready to train for char-based model from NATAS
+-- Could access cluster => how to get gpu infos for training ? Try colab
+-- Try fine tuning for word based ? Yes
+-- Erase empty lines ? Yes
+-- multiple word per line ? Yes
+-- Discuss config for training: 8000
+-- Template for project report ? No, make myself
+
+- Begin working with ciaccona on grec part only => do a module that takes a string of char as input and output the corrected string (rule based approach)
+- Save checkpoints (see how many time it takes for training)

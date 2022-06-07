@@ -3,6 +3,7 @@
 
 import sys
 import os
+import re
 
 
 # This is used to remove hyphen from a target file
@@ -21,7 +22,7 @@ def dehyphenate(target_input, target_output):
             tgt_output.write(buffer + line)
             hyphen_before = False
             buffer = ""
-        elif line.endswith("-\n"):
+        elif line.endswith("-\n") and bool(re.match('^[,;.: ]+$', line[-3])) is False:
             hyphen_before = True
             buffer = line[:-2]
         else:

@@ -1,4 +1,4 @@
 .idea/
-nmt/models/model.fren_step_1000.pt
-nmt/models/model.fren_step_2000.pt
-nmt/models/model.fren_step_3000.pt
+nmt/models/
+ciaconna/
+data/

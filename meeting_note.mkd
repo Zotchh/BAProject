@@ -6,7 +6,6 @@
 
 - Having working script, not trained yet for next week
 
-
 11.05:
 
 - Fine tuning ready to train for char-based model from NATAS
@@ -19,3 +18,16 @@
 
 - Begin working with ciaccona on grec part only => do a module that takes a string of char as input and output the corrected string (rule based approach)
 - Save checkpoints (see how many time it takes for training)
+
+31.05:
+
+- model1: 8000 steps + jebb corpus BLEU from 93 to 63.37
+- model2: 15000 steps + jebb corpus BLEU from 93 to 67.29
+- model3: 50000 steps + jebb corpus BLEU from 93 to 74.49
+
+- problem translating a lot of english words to greek words
+- savoir combien de steps correspond a une epoch
+
+- ciaconna :
+-- from xml to xml: see bs4 beautifulsoup + github link with function to get a bs4 objects
+

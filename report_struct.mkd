@@ -1,0 +1,32 @@
+- Introduction
+-- OCR introduction
+--- limits
+--- importance for DH LAB
+-- Goal
+-- Summary
+-- Related Work
+--- OCR post correction
+---- supervised approach
+---- unsupervised approach
+
+- Model
+-- Supervised Model
+--- Choice
+--- Implementation
+-- Unsupervised Model
+--- Choice
+--- Implementation
+
+- Results
+-- Supervised Model
+-- Unsupervised Model
+
+- Analysis
+-- Supervised Model
+--- Observation
+--- Improvements
+-- Unsupervised Model
+--- Observation
+--- Improvements
+
+- Conclusion

@@ -1,0 +1,42 @@
+model1:
+
+- jebb_train corpus (3708 words)
+- reset_optim: states
+- +8000 epochs
+- 500 warmup steps
+
+decoder_type: transformer
+encoder_type: brnn          # Used in the NATAS paper
+word_vec_size: 512          # Default, maybe lower for character-level ?
+rnn_size: 512               # Default
+layers: 2                   # Used in the NATAS paper
+transformer_ff: 2048        # Default
+heads: 8                    # Default
+
+accum_count: 4              # Recommanded for transformer, maybe change
+optim: sgd                  # Default
+decay_method: noam          # Some custom decay rate
+learning_rate: 1.0          # Default for sgd
+max_grad_norm: 5.0          # Default
+
+# Tokens per batch, change if out of GPU memory
+batch_size: 4096            # Higher the better ;)
+#valid_batch_size: 4096      # Higher the better ;)
+batch_type: tokens          # Dynamic batching
+normalization: tokens
+dropout: 0.3                # Default
+label_smoothing: 0.0        # Default, no smoothing
+
+max_generator_batches: 32   # Default, Higher the better ;)
+
+param_init: 0.0             # No init
+param_init_glorot: 'true'   # Required for transformer
+position_encoding: 'true'   # Necessary for non-RNN style models
+
+
+BLEU SCORE: source is 93.58 ==> translation is 63.37
+
+
+
+
+

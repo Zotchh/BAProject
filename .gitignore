@@ -1,4 +1,5 @@
 .idea/
 nmt/models/
-ciaconna/
 data/
+meeting_note.mkd
+report_struct.mkd

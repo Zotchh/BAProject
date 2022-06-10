@@ -14,58 +14,19 @@ $PYTHON_PATH/python3 $NMT_PATH/preparation/remove_empty_lines.py $NMT_PATH/$SOUR
 $PYTHON_PATH/python3 $NMT_PATH/preparation/remove_empty_lines.py $NMT_PATH/$SOURCE_TEST $NMT_PATH/$TARGET_TEST
 echo""
 
-echo "Dehyphenate all files"
-$PYTHON_PATH/python3 $NMT_PATH/preparation/dehyphenate.py $NMT_PATH/$SOURCE_TRAIN.cleaned
-$PYTHON_PATH/python3 $NMT_PATH/preparation/dehyphenate.py $NMT_PATH/$SOURCE_TEST.cleaned
-$PYTHON_PATH/python3 $NMT_PATH/preparation/dehyphenate.py $NMT_PATH/$TARGET_TRAIN.cleaned
-$PYTHON_PATH/python3 $NMT_PATH/preparation/dehyphenate.py $NMT_PATH/$TARGET_TEST.cleaned
-echo""
-
-SOURCE_TRAIN_SIZE=$(wc -l < $NMT_PATH/$SOURCE_TRAIN.cleaned.dehyphenate)
-TARGET_TRAIN_SIZE=$(wc -l < $NMT_PATH/$TARGET_TRAIN.cleaned.dehyphenate)
-SOURCE_TEST_SIZE=$(wc -l < $NMT_PATH/$SOURCE_TEST.cleaned.dehyphenate)
-TARGET_TEST_SIZE=$(wc -l < $NMT_PATH/$TARGET_TEST.cleaned.dehyphenate)
-
-if [ "$SOURCE_TRAIN_SIZE" -ne "$TARGET_TRAIN_SIZE" ] ; then
-    echo "Source and Target files for training are not of the same size"
-    echo "Stopping execution"
-    exit 1
-else
-    echo "Source and Target files for training are of the same size"
-    echo "Continuing..."
-fi
-echo""
-
-if [ "$SOURCE_TEST_SIZE" -ne "$TARGET_TEST_SIZE" ] ; then
-    echo "Source and Target files for testing are not of the same size"
-    echo "Stopping execution"
-    exit 1
-else
-    echo "Source and Target files for testing are of the same size"
-    echo "Continuing..."
-fi
-echo""
-
-echo "Lowercase all files"
-$PYTHON_PATH/python3 $NMT_PATH/preparation/lowercase.py $NMT_PATH/$SOURCE_TRAIN.cleaned.dehyphenate
-$PYTHON_PATH/python3 $NMT_PATH/preparation/lowercase.py $NMT_PATH/$SOURCE_TEST.cleaned.dehyphenate
-$PYTHON_PATH/python3 $NMT_PATH/preparation/lowercase.py $NMT_PATH/$TARGET_TRAIN.cleaned.dehyphenate
-$PYTHON_PATH/python3 $NMT_PATH/preparation/lowercase.py $NMT_PATH/$TARGET_TEST.cleaned.dehyphenate
-echo""
-
 echo "Tokenize source: $SOURCE_TRAIN, $SOURCE_TEST and target: $TARGET_TRAIN, $TARGET_TEST"
-$PYTHON_PATH/python3 $NMT_PATH/preparation/char_tokenizer.py $NMT_PATH/$SOURCE_TRAIN.cleaned.dehyphenate.lowercased $NMT_PATH/$TARGET_TRAIN.cleaned.dehyphenate.lowercased
-$PYTHON_PATH/python3 $NMT_PATH/preparation/char_tokenizer.py $NMT_PATH/$SOURCE_TEST.cleaned.dehyphenate.lowercased $NMT_PATH/$TARGET_TEST.cleaned.dehyphenate.lowercased
+$PYTHON_PATH/python3 $NMT_PATH/preparation/char_tokenizer.py $NMT_PATH/$SOURCE_TRAIN.cleaned $NMT_PATH/$TARGET_TRAIN.cleaned
+$PYTHON_PATH/python3 $NMT_PATH/preparation/char_tokenizer.py $NMT_PATH/$SOURCE_TEST.cleaned $NMT_PATH/$TARGET_TEST.cleaned
 echo""
 
 echo "SUCCESS: Preparation Complete"
 echo ""
 
 echo "Renaming files for cleaning"
-mv $SOURCE_TRAIN.cleaned.dehyphenate.lowercased.tokenized train.source
-mv $TARGET_TRAIN.cleaned.dehyphenate.lowercased.tokenized train.target
-mv $SOURCE_TEST.cleaned.dehyphenate.lowercased.tokenized test.source
-mv $TARGET_TEST.cleaned.dehyphenate.lowercased.tokenized test.target
+mv $SOURCE_TRAIN.cleaned.tokenized train.source
+mv $TARGET_TRAIN.cleaned.tokenized train.target
+mv $SOURCE_TEST.cleaned.tokenized test.source
+mv $TARGET_TEST.cleaned.tokenized test.target
 echo""
 
 echo "Renaming complete, clean script can be used"
